@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f5efdb;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Projekt.Controller">
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0"
+                  style="-fx-background-color: #981515; -fx-background-radius: 1em; -fx-border-color: #702424; -fx-border-radius: 1em;"
+                  BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+         </BorderPane.margin>
+         <Text fill="#f5efdb" layoutX="1.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0"
+               text="Twoje Zamówienie" textAlignment="CENTER" wrappingWidth="200.0" AnchorPane.bottomAnchor="300.0"
+               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="22.0"/>
+            </font>
+         </Text>
+         <TableView fx:id="tabelaZamowienie" layoutX="9.0" layoutY="47.0" prefHeight="193.0" prefWidth="191.0"
+                    style="-fx-background-color: #f5efdb;" AnchorPane.bottomAnchor="159.0" AnchorPane.leftAnchor="8.0"
+                    AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="46.0">
+            <columns>
+               <TableColumn fx:id="rodzajColumn" editable="false" prefWidth="68.0" text="Rodzaj"/>
+               <TableColumn fx:id="wielkoscColumn" editable="false" prefWidth="71.0" text="Wielkosc"/>
+               <TableColumn fx:id="cenaColumn" editable="false" prefWidth="48.0" text="Cena"/>
+            </columns>
+            <opaqueInsets>
+               <Insets/>
+            </opaqueInsets>
+         </TableView>
+         <TextField fx:id="cenaTextFiled" alignment="CENTER" editable="false" layoutX="19.0" layoutY="318.0"
+                    promptText="Cena" style="-fx-background-color: #f5efdb;" AnchorPane.bottomAnchor="45.0"
+                    AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="325.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+         </TextField>
+         <Button layoutX="51.0" layoutY="346.0" mnemonicParsing="false" onAction="#recipt" prefHeight="30.0"
+                 prefWidth="100.0" style="-fx-background-color: #f5efdb;" text="Zamawiam" textFill="#981515"
+                 AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"
+                 AnchorPane.topAnchor="360.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+         </Button>
+         <Button layoutX="37.0" layoutY="288.0" mnemonicParsing="false" onAction="#countZamowienie"
+                 prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #f5efdb;" text=" Oblicz Zamówienie"
+                 textAlignment="CENTER" textFill="#981515" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="37.0"
+                 AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="285.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+            <padding>
+               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+            </padding>
+         </Button>
+         <Button layoutX="38.0" layoutY="247.0" mnemonicParsing="false"
+                 onAction="#deleteRowAction" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #f5efdb;"
+                 text="Usuń wybrany wpis" textAlignment="CENTER" textFill="#981515" AnchorPane.bottomAnchor="120.0"
+                 AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="245.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+            <padding>
+               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+            </padding>
+         </Button>
+      </AnchorPane>
+   </right>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f5efdb;"
+                  BorderPane.alignment="CENTER">
+         <AnchorPane fx:id="napojePanel" layoutX="9.0" prefHeight="400.0" prefWidth="290.0"
+                     style="-fx-background-color: #981515; -fx-background-radius: 1em; -fx-border-color: #702424; -fx-border-radius: 1em;"
+                     AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                     AnchorPane.topAnchor="5.0">
+            <Button layoutX="178.0" layoutY="341.0" mnemonicParsing="false"
+                    onAction="#addZamowienieNapoje" prefHeight="40.0" prefWidth="80.0"
+                    style="-fx-background-color: #f5efdb;" text="Dodaj" textFill="#981515"
+                    AnchorPane.bottomAnchor="22.5">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0"/>
+               </font>
+            </Button>
+            <ChoiceBox fx:id="napojeChoiceBox" layoutX="16.0" layoutY="334.0" prefHeight="25.0" prefWidth="150.0"
+                       style="-fx-background-color: #f5efdb; -fx-background-radius: 22em;"
+                       AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="15.0"/>
+            <ChoiceBox fx:id="rozmiarN" layoutX="26.0" layoutY="339.0" prefHeight="25.0" prefWidth="150.0"
+                       style="-fx-background-color: #f5efdb; -fx-background-radius: 22em;"
+                       AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"/>
+            <ImageView fitHeight="113.0" fitWidth="168.0" layoutX="-15.0" layoutY="23.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/cola.png"/>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="133.0" layoutY="4.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/fanta.png"/>
+            </ImageView>
+            <ImageView fitHeight="113.0" fitWidth="56.0" layoutX="40.0" layoutY="183.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/sprite.png"/>
+            </ImageView>
+            <ImageView fitHeight="165.0" fitWidth="161.0" layoutX="115.0" layoutY="147.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/woda.png"/>
+            </ImageView>
+         </AnchorPane>
+         <AnchorPane fx:id="dodatkiPanel" layoutX="9.0" prefHeight="390.0" prefWidth="285.0"
+                     style="-fx-background-color: #981515; -fx-background-radius: 1em; -fx-border-color: #702424; -fx-border-radius: 1em;"
+                     AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                     AnchorPane.topAnchor="5.0">
+            <Button layoutX="178.0" layoutY="341.0" mnemonicParsing="false"
+                    onAction="#addZamowienieDodatki" prefHeight="40.0" prefWidth="80.0"
+                    style="-fx-background-color: #f5efdb;" text="Dodaj" textFill="#981515"
+                    AnchorPane.bottomAnchor="22.5">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0"/>
+               </font>
+            </Button>
+            <ChoiceBox fx:id="dodatkiChoiceBox" layoutX="16.0" layoutY="334.0" prefHeight="25.0" prefWidth="150.0"
+                       style="-fx-background-color: #f5efdb; -fx-background-radius: 22em;"
+                       AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="15.0"/>
+            <ChoiceBox fx:id="rozmiarD" layoutX="27.0" layoutY="329.0" prefHeight="25.0" prefWidth="150.0"
+                       style="-fx-background-color: #f5efdb; -fx-background-radius: 22em;"
+                       AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"/>
+            <ImageView fitHeight="100.0" fitWidth="131.0" layoutX="72.0" layoutY="14.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/frytki.png"/>
+            </ImageView>
+            <ImageView fitHeight="93.0" fitWidth="177.0" layoutX="52.0" layoutY="108.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/zapiekanka.png"/>
+            </ImageView>
+            <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="129.0" layoutY="186.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/ketchup.png"/>
+            </ImageView>
+            <ImageView fitHeight="108.0" fitWidth="106.0" layoutX="15.0" layoutY="199.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@../Resource/sos-czosnkowy.png"/>
+            </ImageView>
+         </AnchorPane>
+         <AnchorPane fx:id="pizzaPanel" layoutX="9.0" prefHeight="400.0" prefWidth="285.0"
+                     style="-fx-background-color: #981515; -fx-background-radius: 1em; -fx-border-color: #702424; -fx-border-radius: 1em;"
+                     AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                     AnchorPane.topAnchor="5.0">
+            <Button layoutX="169.0" layoutY="331.0" mnemonicParsing="false"
+                    onAction="#addZamowieniePizza" prefHeight="40.0" prefWidth="80.0"
+                    style="-fx-background-color: #f5efdb;" text="Dodaj" textFill="#981515"
+                    AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="25.0"
+                    AnchorPane.topAnchor="330.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0"/>
+               </font>
+            </Button>
+            <ChoiceBox fx:id="pizzaChoiceBox1" layoutX="14.0" layoutY="330.0" prefHeight="25.0" prefWidth="150.0"
+                       style="-fx-background-color: #f5efdb; -fx-background-radius: 22em;"
+                       AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="120.0"
+                       AnchorPane.topAnchor="320.0"/>
+            <ChoiceBox fx:id="rozmiarP" layoutX="14.0" layoutY="361.0" prefHeight="25.0" prefWidth="150.0"
+                       style="-fx-background-color: #f5efdb; -fx-background-radius: 22em;"
+                       AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="120.0"
+                       AnchorPane.topAnchor="350.0"/>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true"
+                       preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0"
+                       AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="15.0">
+               <Image url="@../Resource/margherita.png"/>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="159.0" layoutY="16.0" pickOnBounds="true"
+                       preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="140.0"
+                       AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <Image url="@../Resource/salami.png"/>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="17.0" layoutY="172.0" pickOnBounds="true"
+                       preserveRatio="true" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="15.0"
+                       AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="170.0">
+               <viewport>
+                  <Rectangle2D/>
+               </viewport>
+               <Image url="@../Resource/prosciutto.png"/>
+            </ImageView>
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="149.0" layoutY="173.0" pickOnBounds="true"
+                       preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="140.0"
+                       AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="170.0">
+               <Image url="@../Resource/wiejska.png"/>
+            </ImageView>
+         </AnchorPane>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="100.0"
+                  style="-fx-background-color: #981515; -fx-background-radius: 1em; -fx-border-color: #702424; -fx-border-radius: 1em;"
+                  BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0"/>
+         </BorderPane.margin>
+         <Button fx:id="pizzaButton" mnemonicParsing="false" onAction="#handleButtonAction"
+                 style="-fx-background-color: #f5efdb;" text="Pizza" textFill="#981515" AnchorPane.bottomAnchor="365.0"
+                 AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+         </Button>
+         <Button fx:id="napojeButton" layoutX="6.0" layoutY="42.0" mnemonicParsing="false"
+                 onAction="#handleButtonAction" style="-fx-background-color: #f5efdb;" text="Napoje" textFill="#981515"
+                 AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0"
+                 AnchorPane.topAnchor="40.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+         </Button>
+         <Button fx:id="dodatkiButton" layoutX="5.0" layoutY="78.0" mnemonicParsing="false"
+                 onAction="#handleButtonAction" style="-fx-background-color: #f5efdb;" text="Dodatki" textFill="#981515"
+                 AnchorPane.bottomAnchor="295.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                 AnchorPane.topAnchor="75.0">
+            <font>
+               <Font name="Comic Sans MS Bold" size="12.0"/>
+            </font>
+         </Button>
+      </AnchorPane>
+   </left>
+</BorderPane>
